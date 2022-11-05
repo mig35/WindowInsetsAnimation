@@ -1,4 +1,4 @@
-WindowInsetsAnimation sample
+WindowInsetsAnimation sample for [`Mobius Conf`](https://mobiusconf.com/talks/b52ff4ccd2474f1592cfe59a3294b5f6/).
 ============
 
 This sample shows how to react to the on-screen keyboard (IME) changing visibility, and also controlling the IME's visibility.
@@ -15,7 +15,6 @@ The app displays a mock instant-message style conversation, and has two key piec
 When the IME is displayed due to a implicit event (such as the `EditText` being focused), the UI will react as the IME animates in by moving any relevant views in unison. This creates the effect of the IME pushing the app's UI up. You can see this in the demo above on the right. 
 
 In terms of implementation, this is done using a [`WindowInsetsAnimationCompat.Callback`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback), which allows views to be notified when an insets animation is taking place. 
-Check out this presentation and lection of the usage [`Mobius Conf`](https://mobiusconf.com/talks/b52ff4ccd2474f1592cfe59a3294b5f6/).
 
 #### Graceful degredation
 As this feature relies on new APIs, it gracefully degrade the experience as so:
