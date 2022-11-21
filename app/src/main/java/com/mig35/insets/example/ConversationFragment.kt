@@ -51,16 +51,10 @@ class ConversationFragment : Fragment() {
             InsetsConfig(
                 bottomConfig = BottomInsetConfig(
                     persistentType = PersistentInsetType.None,
-                    imeInsetType = BottomInsetConfig.ImeInsetType.AnimateWithTranslate,
+                    imeInsetChange = BottomInsetConfig.ImeInsetChange.Animated,
                 ),
             )
         )
-
-//        ViewCompat.setWindowInsetsAnimationCallback(
-//            binding.messageEdittext,
-//            ControlFocusInsetsAnimationCallback(binding.messageEdittext)
-//        )
-
     }
 
     override fun onDestroyView() {

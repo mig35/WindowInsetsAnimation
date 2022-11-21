@@ -6,7 +6,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.doOnAttach
 import com.mig35.insets.controllers.InsetsControllerAnimatedImmediate
-import com.mig35.insets.controllers.InsetsControllerAnimatedPadding
 import com.mig35.insets.controllers.InsetsControllerAnimatedTranslate
 import com.mig35.insets.controllers.InsetsControllerStatic
 
@@ -53,7 +52,7 @@ fun View.applyBottomInsetsAsPadding() {
         InsetsConfig(
             bottomConfig = BottomInsetConfig(
                 persistentType = PersistentInsetType.Padding,
-                imeInsetType = BottomInsetConfig.ImeInsetType.None
+                imeInsetChange = BottomInsetConfig.ImeInsetChange.None
             ),
         )
     )
@@ -67,7 +66,7 @@ fun View.applyBottomInsetsAsTranslate() {
         InsetsConfig(
             bottomConfig = BottomInsetConfig(
                 persistentType = PersistentInsetType.Translate,
-                imeInsetType = BottomInsetConfig.ImeInsetType.None
+                imeInsetChange = BottomInsetConfig.ImeInsetChange.None
             )
         )
     )
@@ -81,7 +80,7 @@ fun View.applyBottomInsetsAsMargin() {
         InsetsConfig(
             bottomConfig = BottomInsetConfig(
                 persistentType = PersistentInsetType.Margin,
-                imeInsetType = BottomInsetConfig.ImeInsetType.None
+                imeInsetChange = BottomInsetConfig.ImeInsetChange.None
             )
         )
     )
@@ -96,7 +95,7 @@ fun View.applyBottomImeInsets() {
         InsetsConfig(
             bottomConfig = BottomInsetConfig(
                 persistentType = PersistentInsetType.Padding,
-                imeInsetType = BottomInsetConfig.ImeInsetType.AnimateWithTranslate
+                imeInsetChange = BottomInsetConfig.ImeInsetChange.Animated
             ),
         )
     )
@@ -105,14 +104,12 @@ fun View.applyBottomImeInsets() {
 fun View.applyInsetsWithConfig(
     insetsConfig: InsetsConfig,
 ) {
-    when (insetsConfig.bottomConfig?.imeInsetType) {
-        null, BottomInsetConfig.ImeInsetType.None ->
+    when (insetsConfig.bottomConfig?.imeInsetChange) {
+        null, BottomInsetConfig.ImeInsetChange.None ->
             InsetsControllerStatic(this, insetsConfig)
-        BottomInsetConfig.ImeInsetType.AnimateWithTranslate ->
+        BottomInsetConfig.ImeInsetChange.Animated ->
             InsetsControllerAnimatedTranslate(this, insetsConfig)
-        BottomInsetConfig.ImeInsetType.AnimateWithPadding ->
-            InsetsControllerAnimatedPadding(this, insetsConfig)
-        BottomInsetConfig.ImeInsetType.Immediate ->
+        BottomInsetConfig.ImeInsetChange.Immediate ->
             InsetsControllerAnimatedImmediate(this, insetsConfig)
     }
 }

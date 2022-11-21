@@ -50,10 +50,10 @@ data class BottomInsetConfig(
     /**
      * Define handle of ime animation and final state.
      */
-    val imeInsetType: ImeInsetType,
+    val imeInsetChange: ImeInsetChange,
 ) {
 
-    enum class ImeInsetType {
+    enum class ImeInsetChange {
         /**
          * No ime actions
          */
@@ -62,12 +62,7 @@ data class BottomInsetConfig(
         /**
          * Will animate ime open/hide with translate for best performance and will use persistentType for ime final state.
          */
-        AnimateWithTranslate,
-
-        /**
-         * Will animate ime open/hide with padding with bad performance and will use persistentType for ime final state.
-         */
-        AnimateWithPadding,
+        Animated,
 
         /**
          * Will apply ime open/hide immediately and will use persistentType for ime final state.
