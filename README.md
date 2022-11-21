@@ -1,14 +1,14 @@
 WindowInsetsAnimation sample for [`Mobius Conf`](https://mobiusconf.com/talks/b52ff4ccd2474f1592cfe59a3294b5f6/).
 ============
 
-This sample shows how to react to the on-screen keyboard (IME) changing visibility, and also controlling the IME's visibility.
+This sample shows how to react to the on-screen keyboard (IME) changing visibility and gives some additional helper functions to work with.
 To do this, the sample uses the [WindowInsetsAnimationCompat](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat) and [WindowInsetsAnimationControllerCompat](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationControllerCompat) APIs available in [AndroidX Core](https://developer.android.com/jetpack/androidx/releases/core) and [Android 11](https://developer.android.com/11).
 
 ![Animation showing app in use](./images/software-keyboard.gif)
 
 ## Features
 
-The app displays a mock instant-message style conversation, and has two key pieces of functionality:
+The app displays a mock instant-message style conversation:
 
 ### Reacting to the IME coming on/off screen (API 21+)
 
